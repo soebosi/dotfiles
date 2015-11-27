@@ -1,0 +1,44 @@
+Config { font         = "xft:Ricty:size=9:bold:antialias=true"
+       , bgColor      = "black"
+       , fgColor      = "grey"
+       , position     = TopW L 90
+       , lowerOnStart = False
+       , sepChar      = "%"
+       , alignSep     = "}{"
+       , template     = "%StdinReader% }{ %battery% | %cpu% | %memory% | %dynnetwork%   <fc=#ee9a00>%date%</fc>"
+       , commands     =
+         [ Run DynNetwork  [ "--template" , "<dev>: <tx>kB/s|<rx>kB/s"
+                           , "--Low"      , "1000"
+                           , "--High"     , "5000"
+                           , "--low"      , "darkgreen"
+                           , "--normal"   , "darkorange"
+                           , "--high"     , "darkred"
+                           ] 10
+         , Run Cpu         [ "--Low"      , "5"
+                           , "--High"     , "50"
+                           , "--low"      , "darkgreen"
+                           , "--normal"   , "darkorange"
+                           , "--high"     , "darkred"
+                           ] 10
+         , Run Memory      [ "--template" , "Mem: <usedratio>%"
+                           , "--Low"      , "20"
+                           , "--High"     , "90"
+                           , "--low"      , "darkgreen"
+                           , "--normal"   , "darkorange"
+                           , "--high"     , "darkred"
+                           ] 10
+         , Run Battery     [ "--template" , "Batt: <acstatus>"
+                           , "--Low"      , "20"
+                           , "--High"     , "80"
+                           , "--low"      , "darkgreen"
+                           , "--normal"   , "darkorange"
+                           , "--high"     , "darkred"
+                           , "--"
+                             , "-o" , "<left>% (<timeleft>)"
+                             , "-O" , "<fc=#dAA520>Charging</fc>"
+                             , "-i" , "<fc=#006000>Charged</fc>"
+                           ] 10
+         , Run Date        "%a %b %_d %Y %H:%M:%S" "date" 10
+         , Run StdinReader
+         ]
+       }
