@@ -1,0 +1,11 @@
+[user]
+	name = ebosi38051
+	email = ebosi38051@gmail.com
+[alias]
+	st = status
+	lg = log --oneline --graph
+	co = checkout
+[color]
+	ui = true
+[core]
+	editor = vim
