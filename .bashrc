@@ -221,4 +221,7 @@ source $HOME/git-prompt.sh
 export PS1='\[\033[33m\]\u@\h\[\033[00m\] \w $(__git_ps1 "\[\033[1;32m\][%s]\[\033[00m\]")\n\$ '
 ##############
 
-tmux
+if type "tmux" > /dev/null 2>&1
+then
+  tmux
+fi
