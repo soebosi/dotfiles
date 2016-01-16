@@ -196,7 +196,6 @@ alias l='ls -CF'                              #
 # }
 # 
 # alias cd=cd_func
-alias open='cygstart'
 alias gcd='cd `git rev-parse --show-toplevel`'
 # スクリプト読み込み
 source $HOME/git-completion.bash
