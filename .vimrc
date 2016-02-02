@@ -38,6 +38,7 @@ set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
 set statusline+=%=%l/%L,%c%V%8P
 set iminsert=0
 set imsearch=-1
+set autoread
 
 nnoremap <silent> st :<C-u>tabnew .<CR>
 nnoremap <C-j>  gt
