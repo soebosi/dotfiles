@@ -43,6 +43,7 @@ set autoread
 nnoremap <silent> st :<C-u>tabnew .<CR>
 nnoremap <C-j>  gt
 nnoremap <C-k>  gT
-inoremap <C-l>  <esc>
+nnoremap <C-h>  :<C-u>tabmove -1<CR>
+nnoremap <C-l>  :<C-u>tabmove +1<CR>
 nnoremap <Space>h  ^
 nnoremap <Space>l  $
