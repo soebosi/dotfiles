@@ -20,6 +20,7 @@ set smartindent
 set nowrap
 set showmatch
 set hlsearch
+set incsearch
 set smartcase
 set expandtab
 set wildmenu

@@ -3,7 +3,7 @@
 	email = ebosi38051@gmail.com
 [alias]
 	st = status
-	lg = log --oneline --graph
+	lg = log --oneline --graph --decorate
 	co = checkout
 [color]
 	ui = true
