@@ -224,3 +224,6 @@ if type "tmux" > /dev/null 2>&1
 then
   tmux
 fi
+
+export PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin
+export PTAH=$PATH:$HOME/.composer/vendor/bin
