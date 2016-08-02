@@ -42,7 +42,9 @@ set wildmenu
 set wildmode=list:longest
 
 autocmd QuickFixCmdPost *grep* cwindow
+autocmd QuickFixCmdPost *grep* redraw!
 autocmd SessionLoadPost * autocmd VimLeave * mks!
+autocmd TabLeave * cclose
 
 let g:netrw_preview=1
 let g:netrw_winsize=30
@@ -50,12 +52,8 @@ let g:netrw_winsize=30
 nnoremap <silent> st :<C-u>tabnew .<CR>
 nnoremap <C-j>  gt
 nnoremap <C-k>  gT
-nnoremap <C-h>  :<C-u>tabmove -1<CR>
-nnoremap <C-l>  :<C-u>tabmove +1<CR>
-nnoremap <Space>h  ^
-nnoremap <Space>l  $
 
-cabbrev grep grep!
+cabbrev grep silent grep!
 
 colorscheme hybrid
 syntax on
