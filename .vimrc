@@ -1,7 +1,5 @@
 set fileencoding=utf-8
 set encoding=utf-8
-colorscheme hybrid
-syntax on
 set nocompatible
 set backspace=start,eol,indent
 set number
@@ -40,6 +38,13 @@ set statusline+=%=%l/%L,%c%V%8P
 set iminsert=0
 set imsearch=-1
 set autoread
+set grepprg=git\ grep\ -nIH
+
+autocmd SessionLoadPost * autocmd VimLeave * mks!
+autocmd QuickFixCmdPost *grep* cwindow
+
+let g:netrw_preview=1
+let g:netrw_winsize=30
 
 nnoremap <silent> st :<C-u>tabnew .<CR>
 nnoremap <C-j>  gt
@@ -48,3 +53,8 @@ nnoremap <C-h>  :<C-u>tabmove -1<CR>
 nnoremap <C-l>  :<C-u>tabmove +1<CR>
 nnoremap <Space>h  ^
 nnoremap <Space>l  $
+
+cabbrev grep grep!
+
+colorscheme hybrid
+syntax on

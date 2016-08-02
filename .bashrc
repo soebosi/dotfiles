@@ -225,5 +225,7 @@ then
   tmux
 fi
 
+export GOPATH=$HOME/.go
 export PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin
-export PTAH=$PATH:$HOME/.composer/vendor/bin
+export PATH=$PATH:$HOME/.composer/vendor/bin
+export PATH=$PATH:$HOME/.go/bin
