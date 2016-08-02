@@ -1,47 +1,48 @@
-set fileencoding=utf-8
-set encoding=utf-8
-set nocompatible
+set autoindent
+set autoread
 set backspace=start,eol,indent
-set number
+set confirm
 set cursorline
+set encoding=utf-8
+set expandtab
+set fileencoding=utf-8
+set grepprg=git\ grep\ -nIH
+set guifont=Inconsolata:h13
+set guioptions-=L
+set guioptions-=R
+set guioptions-=l
+set guioptions-=r
+set hidden
+set hlsearch
+set ignorecase
+set iminsert=0
+set imsearch=-1
+set incsearch
 set laststatus=2
 set list
 set listchars=tab:>.,trail:_,extends:>,precedes:<,nbsp:%
-set whichwrap=h,l
-set guifont=Inconsolata:h13
-set tabstop=2
+set nobackup
+set nocompatible
+set noswapfile
+set nowrap
+set number
+set scrolloff=8
 set shiftwidth=2
-set autoindent
-set ignorecase
+set showmatch
+set smartcase
 set smartcase
 set smartindent
-set nowrap
-set showmatch
-set hlsearch
-set incsearch
-set smartcase
-set expandtab
+set statusline+=%=%l/%L,%c%V%8P
+set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
+set statusline=%<%f\ %m%r%h%w
+set switchbuf+=usetab,newtab
+set tabstop=2
+set whichwrap=h,l
 set wildmenu
 set wildmode=list:longest
-set hidden
-set confirm
-set noswapfile
-set nobackup
-set scrolloff=8
-set guioptions-=r
-set guioptions-=R
-set guioptions-=l
-set guioptions-=L
-set statusline=%<%f\ %m%r%h%w
-set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
-set statusline+=%=%l/%L,%c%V%8P
-set iminsert=0
-set imsearch=-1
-set autoread
-set grepprg=git\ grep\ -nIH
 
-autocmd SessionLoadPost * autocmd VimLeave * mks!
 autocmd QuickFixCmdPost *grep* cwindow
+autocmd SessionLoadPost * autocmd VimLeave * mks!
 
 let g:netrw_preview=1
 let g:netrw_winsize=30
