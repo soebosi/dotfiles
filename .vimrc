@@ -36,24 +36,29 @@ set statusline+=%=%l/%L,%c%V%8P
 set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
 set statusline=%<%f\ %m%r%h%w
 set switchbuf+=usetab,newtab
+set tabpagemax=30
 set tabstop=2
+set viminfo=
 set whichwrap=h,l
 set wildmenu
-set wildmode=list:longest
+set wildmode=list:full
 
 autocmd QuickFixCmdPost *grep* cwindow
 autocmd QuickFixCmdPost *grep* redraw!
+autocmd QuickFixCmdPost *make* cwindow
+autocmd QuickFixCmdPost *make* redraw!
 autocmd SessionLoadPost * autocmd VimLeave * mks!
 autocmd TabLeave * cclose
 
 let g:netrw_preview=1
 let g:netrw_winsize=30
 
-nnoremap <silent> st :<C-u>tabnew .<CR>
+nnoremap <silent> st :<C-u>Texplore<CR>
 nnoremap <C-j>  gt
 nnoremap <C-k>  gT
 
 cabbrev grep silent grep!
+cabbrev make silent make!
 
 colorscheme hybrid
 syntax on
