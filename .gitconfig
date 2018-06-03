@@ -9,3 +9,5 @@
 	ui = true
 [core]
 	editor = vim
+	excludesfile = /home/isobe/.gitignore_global
+	autocrlf = input

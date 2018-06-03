@@ -1,6 +1,7 @@
 set autoindent
 set autoread
 set backspace=start,eol,indent
+set backupcopy=yes
 set confirm
 set cursorline
 set encoding=utf-8
@@ -32,9 +33,9 @@ set showmatch
 set smartcase
 set smartcase
 set smartindent
+set statusline=%<%f\ %m%r%h%w
 set statusline+=%=%l/%L,%c%V%8P
 set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
-set statusline=%<%f\ %m%r%h%w
 set switchbuf+=usetab,newtab
 set tabpagemax=30
 set tabstop=2

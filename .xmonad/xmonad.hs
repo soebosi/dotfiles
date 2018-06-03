@@ -30,7 +30,7 @@ myConfig = baseConfig
     , normalBorderColor  = "#333333"
     , focusedBorderColor = "#aaaaaa"
     , startupHook        = do
-        spawn "google-chrome-stable"
+        spawn "chromium"
         spawn "feh --randomize --bg-fill ~/pictures/wallpaper/*"
     } `additionalKeysP`
     [ (("<XF86AudioLowerVolume>"), spawn "amixer set Master 4-")
