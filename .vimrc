@@ -9,10 +9,6 @@ set expandtab
 set fileencoding=utf-8
 set grepprg=git\ grep\ -nIH
 set guifont=Inconsolata:h13
-set guioptions-=L
-set guioptions-=R
-set guioptions-=l
-set guioptions-=r
 set hidden
 set hlsearch
 set ignorecase
@@ -31,32 +27,28 @@ set scrolloff=8
 set shiftwidth=2
 set showmatch
 set smartcase
-set smartcase
 set smartindent
-set statusline=%<%f\ %m%r%h%w
-set statusline+=%=%l/%L,%c%V%8P
-set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
-set switchbuf+=usetab,newtab
-set tabpagemax=30
+set statusline=%<%f\ %m%r%h%w%=%l/%L,%c%V%8P%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
 set tabstop=2
 set viminfo=
 set whichwrap=h,l
 set wildmenu
 set wildmode=list:full
 
-autocmd QuickFixCmdPost *grep* cwindow
-autocmd QuickFixCmdPost *grep* redraw!
-autocmd QuickFixCmdPost *make* cwindow
-autocmd QuickFixCmdPost *make* redraw!
+autocmd QuickFixCmdPost *grep*,*make* cwindow
+autocmd QuickFixCmdPost *grep*,*make* redraw!
 autocmd SessionLoadPost * autocmd VimLeave * mks!
-autocmd TabLeave * cclose
+autocmd BufLeave * cclose
 
 let g:netrw_preview=1
 let g:netrw_winsize=30
 
-nnoremap <silent> st :<C-u>Texplore<CR>
-nnoremap <C-j>  gt
-nnoremap <C-k>  gT
+nnoremap <C-j> :bprevious<CR>
+nnoremap <C-k> :bnext<CR>
+nnoremap <C-l> :ls<CR>:buf 
+
+tnoremap <C-w><C-j> <C-w>:bprevious<CR>
+tnoremap <C-w><C-k> <C-w>:bnext<CR>
 
 cabbrev grep silent grep!
 cabbrev make silent make!
