@@ -5,6 +5,7 @@
 	st = status
 	lg = log --oneline --graph --decorate
 	co = checkout
+	fixup = !GIT_EDITOR=: git rebase -i --autosquash
 [color]
 	ui = true
 [core]
