@@ -51,7 +51,8 @@ tnoremap <C-w><C-j> <C-w>:bprevious<CR>
 tnoremap <C-w><C-k> <C-w>:bnext<CR>
 
 cabbrev grep silent grep!
-cabbrev make silent make!
+cabbrev smake silent make!
+cabbrev vterm vert term
 
 colorscheme hybrid
 syntax on
