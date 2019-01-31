@@ -1,4 +1,4 @@
-Config { font         = "xft:Ricty:size=9:bold:antialias=true"
+Config { font         = "xft:Ricty:size=12:bold:antialias=true"
        , bgColor      = "black"
        , fgColor      = "grey"
        , position     = TopW L 90
