@@ -40,15 +40,18 @@ autocmd QuickFixCmdPost *grep*,*make* redraw!
 autocmd SessionLoadPost * autocmd VimLeave * mks!
 autocmd BufLeave * cclose
 
+autocmd FileType javascript,typescript,typescript.tsx set formatprg=npx\ prettier\ --parser\ typescript
+autocmd FileType php set formatprg=npx\ prettier\ --parser\ html
+
 let g:netrw_preview=1
 let g:netrw_winsize=30
 
+nnoremap <silent> st :<C-u>tabnew %<CR>
 nnoremap <C-j> :bprevious<CR>
 nnoremap <C-k> :bnext<CR>
-nnoremap <C-l> :ls<CR>:buf 
-
-tnoremap <C-w><C-j> <C-w>:bprevious<CR>
-tnoremap <C-w><C-k> <C-w>:bnext<CR>
+nnoremap <C-m> gggqG
+nnoremap <C-h> gT
+nnoremap <C-l> gt
 
 cabbrev grep silent grep!
 cabbrev smake silent make!
@@ -56,3 +59,24 @@ cabbrev vterm vert term
 
 colorscheme hybrid
 syntax on
+
+call plug#begin('~/.vim/plugged')
+  Plug 'leafgarland/typescript-vim'
+  Plug 'prabirshrestha/async.vim'
+  Plug 'prabirshrestha/asyncomplete.vim'
+  Plug 'prabirshrestha/asyncomplete-lsp.vim'
+  Plug 'prabirshrestha/vim-lsp'
+  Plug 'mattn/vim-lsp-settings'
+call plug#end()
+
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gh <plug>(lsp-hover)
+endfunction
+
+augroup lsp_install
+    au!
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
