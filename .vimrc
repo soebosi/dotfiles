@@ -1,5 +1,6 @@
 set autoindent
 set autoread
+set background=dark
 set backspace=start,eol,indent
 set backupcopy=yes
 set confirm
@@ -34,6 +35,7 @@ set viminfo=
 set whichwrap=h,l
 set wildmenu
 set wildmode=list:full
+set wildignore+=*/node_modules/*
 
 autocmd QuickFixCmdPost *grep*,*make* cwindow
 autocmd QuickFixCmdPost *grep*,*make* redraw!
