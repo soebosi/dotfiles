@@ -1,14 +1,44 @@
 [user]
-	name = ebosi38051
-	email = ebosi38051@gmail.com
+	name = soebosi
+	email = isobe_soichiro@abema.tv
 [alias]
-	st = status
+	st = status --short
+	cp = cherry-pick
+	sw = switch
 	lg = log --oneline --graph --decorate
 	co = checkout
 	fixup = !GIT_EDITOR=: git rebase -i --autosquash
+	ls = ls-files
+	dn = diff --name-only --relative
+	dnd = diff --name-only develop --relative
+	dnm = diff --name-only master --relative
 [color]
 	ui = true
 [core]
-	editor = vim
-	excludesfile = /home/isobe/.gitignore_global
+	editor = nvim
+	excludesfile = .gitignore_local
 	autocrlf = input
+	pager = delta
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[rebase]
+	autostash = true
+[log]
+	follow = true
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	features = line-numbers decorations
+	whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
